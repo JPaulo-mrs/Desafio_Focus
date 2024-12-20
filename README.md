@@ -116,4 +116,4 @@ npm start
         * **Parâmetros:**
             * `User` (string): Email do usuário.
             * `newPassword` (int): Nova senha do usuário.
-        * **Resposta:** Retorna se foi possível cadastrar o usuário. Caso não for possível irá retornar uma mensagem informando o motivo.
+        * **Resposta:** Retorna se foi possível alterar a senha do usuário. Caso não for possível irá retornar uma mensagem informando o motivo.

@@ -1,0 +1,41 @@
+{
+  "name": "desafio-focus",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./src/api/server/server.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon ./src/api/index.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@eslint/js": "^9.15.0",
+    "@types/cors": "^2.8.17",
+    "@types/express": "^4.17.21",
+    "@types/node": "^22.9.1",
+    "globals": "^15.12.0",
+    "prisma": "^6.0.1",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.7.2",
+    "typescript-eslint": "^8.16.0"
+  },
+  "dependencies": {
+    "@prisma/client": "^6.0.1",
+    "@types/axios": "^0.14.4",
+    "@types/bcrypt": "^5.0.2",
+    "@types/jsonwebtoken": "^9.0.7",
+    "@types/morgan": "^1.9.9",
+    "@types/node-schedule": "^2.1.7",
+    "axios": "^1.7.8",
+    "express": "^4.21.1",
+    "cors": "^2.8.5",
+    "mongoose": "^8.8.2",
+    "morgan": "^1.10.0",
+    "node-schedule": "^2.1.1",
+    "nodemon": "^3.1.7",
+    "yup": "^1.5.0",
+    "yupi": "^1.0.0"
+  }
+}

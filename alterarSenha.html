@@ -12,15 +12,13 @@
 <body>
     <main class="login-bg">
         <div class="login-container">
-            <h1>Login</h1>
-            <form id="loginForm" action="">
+            <h1>Alterar senha</h1>
+            <form id="senhaForm" action="">
                 <input class="login-input" type="text" id="email" placeholder="Email">
                 <br></br>
-                <input class="login-input" type="password" id="senha" placeholder="Senha">
+                <input class="login-input" type="text" id="senha" placeholder="Nova senha">
                 <br></br>
-                <a href="./alterarSenha.html" class="login-link">Esqueci minha senha</a>
-                <br></br>
-                <a href="./cadastrar.html" class="login-link">Criar conta</a>
+                <input class="login-input" type="text" id="senhaConfirmar" placeholder="Confirme a senha">
                 <br></br>
                 <Button class="login-button" type="submit">Enviar</Button>
             </form>
@@ -28,12 +26,14 @@
         </div>
     </main>
     <script>
-        document.getElementById('loginForm').addEventListener('submit', function (event) {
+        document.getElementById('senhaForm').addEventListener('submit', function (event) {
             event.preventDefault();
             const email = document.getElementById('email');
             const senha = document.getElementById('senha');
+            const senhaConfirmar = document.getElementById('senhaConfirmar');
             email.classList.remove('input-error');
             senha.classList.remove('input-error');
+            senhaConfirmar.classList.remove('input-error');
 
             if (!email.value) {
                 email.classList.add('input-error');
@@ -41,15 +41,23 @@
             if (!senha.value) {
                 senha.classList.add('input-error');
             }
-            fetch("http://localhost:3333/", {
-                method: "POST",
+            if (!senhaConfirmar.value) {
+                senhaConfirmar.classList.add('input-error');
+            }
+            if (senha.value !== senhaConfirmar.value) {
+                alert('As senhas não conferem');
+                return;
+            }
+            fetch("http://localhost:3333/user/alterar-senha", {
+                method: "PUT",
                 headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ email: email.value, senha: senha.value }),
+                body: JSON.stringify({ user: email.value, newPassword: senha.value }),
             })
             .then(response => response.json())
             .then(data => {
                 if (data.message) {
-                    alert('Login efetuado com sucesso');
+                    alert('Senha alterada com sucesso');
+                    window.location.href = "index.html";
                 } else if (data.error) {
                     alert(data.error); 
                 }
